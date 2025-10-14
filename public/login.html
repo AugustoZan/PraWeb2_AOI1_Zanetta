@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroTrack - Inicio de sesión</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Inicio de Sesión de Demostración / Recuperación</h1>
+        <nav>
+            <a href="/">Inicio</a> |
+            <a href="/productos.html">Productos</a> |
+            <a href="/contacto">Contacto</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Inicia sesión o recupera credenciales</h2>
+        <p>Demostración: Ingresa datos; el sistema los mostrará de vuelta.</p>
+        <form action="/auth/recuperar" method="POST">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required><br><br>
+            
+            <label for="clave">Clave (Contraseña):</label>
+            <input type="password" id="clave" name="clave" required><br><br>
+            
+            <button type="submit">Enviar / Recuperar</button>
+        </form>
+    </main>
+</body>
+</html>
