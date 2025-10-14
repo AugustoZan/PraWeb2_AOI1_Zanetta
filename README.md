@@ -19,22 +19,17 @@ El servidor usa módulos nativos de Node.js (http, fs, url, os) para manejar rut
 ## Requisitos
 - Node.js versión 14 o superior (instala con `nvm install 14` si es necesario).
 - Un editor de código (ej. VS Code).
-- Imágenes en public/ (trigo.jpg, maiz.jpg, fertilizante.jpg, inicio.png).
 
 ## Instalación y Ejecución
 1. **Clona el repositorio**:  
    `git clone <URL-de-tu-repo>` (o crea uno en GitHub/GitLab y sube los archivos).
 
-2. **Instala dependencias**:  
-   Este proyecto no usa dependencias externas, pero si necesitas algo, ejecuta:  
-   `npm init -y` (para crear package.json, aunque no es obligatorio).
-
-3. **Ejecuta el servidor**:  
+2. **Ejecuta el servidor**:  
    - Navega al directorio: `cd agrotrack`.  
    - Inicia el servidor: `node server.js`.  
    - El servidor correrá en http://localhost:3000.
 
-4. **Accede al portal**:  
+3. **Accede al portal**:  
    Abre un navegador y ve a http://localhost:3000. Explora las páginas:  
    - `/` para el inicio.  
    - `/productos.html` para ver los productos en galería.  
@@ -47,12 +42,3 @@ El servidor usa módulos nativos de Node.js (http, fs, url, os) para manejar rut
 - **Inicio de Sesión**: POST `/auth/recuperar` muestra los datos enviados (usuario y clave oculta por seguridad).
 - **Manejo de Errores**: Rutas inválidas devuelven 404 HTML; errores internos, 500 HTML.
 - **Galería de Productos**: En `/productos.html`, las imágenes se muestran en baldosas horizontales (3 columnas en desktop).
-
-## Notas y Mejoras Futuras
-- **Seguridad**: Este es un MVP; no incluye autenticación real ni HTTPS. Para producción, agrega HTTPS y sesiones.
-- **Imágenes**: Asegúrate de que estén en `public/` y sean optimizadas (menores a 1MB para carga rápida).
-- **Errores Comunes**: Si ves "+" en lugar de espacios en mensajes, verifica el parsing en server.js (ya corregido con URLSearchParams).
-- **Contribuciones**: Si alguien quiere contribuir, revisa el código en server.js y agrega pruebas.
-- **Versión**: Esta es la v1.0 (2025). Próximas mejoras: Base de datos en lugar de archivos, más rutas dinámicas, y responsive avanzado.
-
-¡Gracias por usar AgroTrack! Si tienes preguntas o bugs, abre un issue en el repositorio.
