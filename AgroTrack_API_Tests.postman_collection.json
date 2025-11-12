@@ -1,0 +1,141 @@
+{
+  "info": {
+    "name": "AgroTrack V2.0 - API Tests",
+    "description": "Colección de pruebas para la API REST de AgroTrack - Actividad Obligatoria 2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        },
+        "description": "Verifica el estado del servidor y la conexión a la base de datos"
+      },
+      "response": []
+    },
+    {
+      "name": "2. Listar Contactos (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/contactos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "contactos"]
+        },
+        "description": "Obtiene la lista de todos los contactos registrados en la base de datos"
+      },
+      "response": []
+    },
+    {
+      "name": "3. Crear Contacto - Exitoso (201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"email\": \"juan.perez@email.com\",\n  \"mensaje\": \"Necesito información sobre los servicios de AgroTrack\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/contactos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "contactos"]
+        },
+        "description": "Crea un nuevo contacto con datos válidos. Debe retornar status 201."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Crear Contacto - Error Campo Vacío (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"\",\n  \"email\": \"test@email.com\",\n  \"mensaje\": \"Mensaje de prueba\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/contactos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "contactos"]
+        },
+        "description": "Intenta crear un contacto con nombre vacío. Debe retornar error 400 con mensaje descriptivo."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Crear Contacto - Error Email Inválido (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Test Usuario\",\n  \"email\": \"email-sin-arroba\",\n  \"mensaje\": \"Este es un mensaje de prueba largo para validar\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/contactos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "contactos"]
+        },
+        "description": "Intenta crear un contacto con email inválido (sin @). Debe retornar error 400."
+      },
+      "response": []
+    },
+    {
+      "name": "6. Crear Contacto - Error Mensaje Corto (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Test Usuario\",\n  \"email\": \"test@email.com\",\n  \"mensaje\": \"Hola\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/contactos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "contactos"]
+        },
+        "description": "Intenta crear un contacto con mensaje muy corto (menos de 10 caracteres). Debe retornar error 400."
+      },
+      "response": []
+    }
+  ]
+}

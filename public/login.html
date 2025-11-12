@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroTrack - Iniciar Sesión</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Iniciar Sesión</h1>
+        <nav>
+            <a href="/">Inicio</a> |
+            <a href="/productos.html">Productos</a> |
+            <a href="/contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Acceso al Portal</h2>
+        <p><em>Nota: Esta es una demostración. El sistema mostrará los datos ingresados.</em></p>
+        
+        <form action="/auth/recuperar" method="POST" style="max-width: 400px; margin: 20px auto;">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required minlength="3" maxlength="50">
+            <br><br>
+            
+            <label for="clave">Contraseña:</label>
+            <input type="password" id="clave" name="clave" required minlength="4">
+            <br><br>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 30px;">
+            <small>¿No tienes cuenta? <a href="/contacto.html">Contáctanos</a></small>
+        </p>
+    </main>
+    <footer>
+        <p>&copy; 2025 AgroTrack - Portal Interno. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
